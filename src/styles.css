@@ -1,0 +1,162 @@
+/* minimal styles */
+body { margin: 0; padding: 0; }
+input, button { font-size: 14px; padding: 6px 8px; }
+
+/* Design tokens */
+:root{
+  --bg:#f5f7fa;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#0f172a;
+  --primary:#0b74ff;
+  --primary-600:#075fca;
+  --danger:#ef4444;
+  --border:rgba(15,23,42,0.08);
+  --glass:rgba(255,255,255,0.6);
+  --radius:10px;
+  --shadow: 0 6px 18px rgba(15,23,42,0.06);
+  --gap:12px;
+  --max-width:960px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size:16px;
+}
+
+/* Base */
+* { box-sizing: border-box; }
+html,body,#root { height:100%; }
+body {
+  margin:0;
+  background: linear-gradient(180deg, var(--bg), #ffffff);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:32px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+/* App container */
+.app-container{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* Header */
+.app-header h1{
+  margin:0 0 6px 0;
+  font-size:22px;
+  letter-spacing: -0.2px;
+}
+.muted{ color:var(--muted); margin:0; }
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+  padding:16px;
+}
+
+/* Form row */
+.form-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.input{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(15,23,42,0.08);
+  background:transparent;
+  outline:none;
+  min-width:0;
+  font-size:14px;
+  transition:box-shadow 160ms, transform 120ms;
+}
+.input:focus{
+  box-shadow: 0 4px 12px rgba(11,116,255,0.12);
+  border-color:var(--primary);
+  transform:translateY(-1px);
+}
+.datepicker{
+  width:220px;
+}
+
+/* Buttons */
+.btn{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid rgba(15,23,42,0.06);
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  transition:transform 120ms, box-shadow 120ms;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn.primary{
+  background:linear-gradient(180deg,var(--primary),var(--primary-600));
+  color:#fff;
+  border:none;
+  box-shadow: 0 8px 20px rgba(11,116,255,0.12);
+}
+.btn.danger{
+  background:linear-gradient(180deg,var(--danger),#cb2020);
+  color:#fff;
+  border:none;
+}
+
+/* List */
+.todo-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.todo-row{
+  display:grid;
+  grid-template-columns: 36px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid rgba(15,23,42,0.04);
+  transition:background 160ms, transform 120ms;
+}
+.todo-row:hover{ background:var(--glass); transform:translateY(-2px); }
+
+.todo-row[data-completed="true"] .text{
+  text-decoration:line-through;
+  color:var(--muted);
+  opacity:0.9;
+}
+
+/* Drag & drop visuals */
+.todo-row.dragging {
+  opacity: 0.6;
+  transform: scale(0.995);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.08);
+  border-style: dashed;
+}
+.todo-row.drop-target {
+  outline: 3px dashed rgba(11,116,255,0.12);
+  background: linear-gradient(90deg, rgba(11,116,255,0.03), transparent);
+}
+
+/* Ensure buttons show disabled state */
+button[disabled], .btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+/* Small copy button styling */
+.right .btn + .btn { margin-left: 6px; }
