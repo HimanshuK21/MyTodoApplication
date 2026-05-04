@@ -2,6 +2,10 @@
 
 This is a simple React application created using Vite. The application manages a todo list, allowing users to add, edit, delete, and toggle the completion status of their todos.
 
+## Screenshots
+<img width="1028" height="740" alt="image" src="https://github.com/user-attachments/assets/8a22826a-eeb8-4057-9ef6-edc38a93a7b2" />
+
+
 ## Features
 
 - Add new todos
