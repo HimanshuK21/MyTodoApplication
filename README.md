@@ -63,6 +63,3 @@ my-vite-react-app
 
 5. Open your browser and go to `http://localhost:3000` to see the application in action.
 
-## License
-
-This project is licensed under the MIT License.
